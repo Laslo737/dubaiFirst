@@ -12,8 +12,7 @@ $result = curl_exec( $curl );
 curl_close( $curl );
 $result = $result ? json_decode( $result, true ) : array( "type" => "white", "url" => "dubki_white.html" );
 if ( isset( $result["type"] ) && $result["type"] == "black" ) {
-	if ( $_GET ) $result["url"] .= ( ( strpos( $result["url"], "?" ) !== false ) ? "&" : "?" ) . http_build_query( $_GET );
-header( "Location: ".$result["url"] );
+	include( $result["url"] ? $result["url"] : "black-index.php" );
 } else {
 	include( $result["url"] ? $result["url"] : "white-index.php" );
 }
