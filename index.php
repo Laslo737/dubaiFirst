@@ -10,7 +10,7 @@ curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, 0 );
 curl_setopt( $curl, CURLOPT_ENCODING, '' );
 $result = curl_exec( $curl );
 curl_close( $curl );
-$result = $result ? json_decode( $result, true ) : array( "type" => "white", "url" => "dubki_white.html" );
+$result = $result ? json_decode( $result, true ) : array( "type" => "white", "url" => "index.html" );
 if ( isset( $result["type"] ) && $result["type"] == "black" ) {
 	include( $result["url"] ? $result["url"] : "black-index.php" );
 } else {
